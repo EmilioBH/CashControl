@@ -1,9 +1,9 @@
 <template>
-  <hello-world />
+  <home />
 </template>
 
 <script setup lang="ts">
-  import HelloWorld from './components/HelloWorld';
+  import Home from './views/Home'
 </script>
 
 <style scoped>
