@@ -10,7 +10,6 @@
 </template>
 
 <script setup lang="ts">
-  //import Home from './views/Home'
   import SplashScreen from './views/SplashScreen'
   import { defineAsyncComponent, Component } from 'vue';
 
