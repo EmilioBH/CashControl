@@ -6,13 +6,15 @@
           graphic-component
         </div>
         <div class="action">
-          action-component
+          <add-movement-button />
         </div>
     </main>
 </template>
 
 <script setup lang="ts">
     import { formatCurrency } from '../../utils/number'
+
+    import AddMovementButton from './AddMovementButton'
 
     defineProps({
       amount:{ 
