@@ -7,6 +7,6 @@ describe('Home view tests', () => {
     test('renders properly', () => {
         render(Home)
 
-        expect(screen.getByText(/hello world!/i)).toBeVisible()
+        expect(screen.getByText(/ahorro total/i)).toBeVisible()
     })
 })

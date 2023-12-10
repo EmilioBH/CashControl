@@ -4,7 +4,7 @@
             <Header></Header>
         </template>
         <template #resume>
-            <resume />
+            <Resume :amount="10000"/>
         </template>
         <template #movements>
             <Movements />
