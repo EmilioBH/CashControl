@@ -1,13 +1,13 @@
 <template>
     <Layout>
         <template #header>
-            <Header></Header>
+            <Header data-testid="header-component"></Header>
         </template>
         <template #resume>
-            <resume />
+            <Resume data-testid="resume-component" :amount="10000"/>
         </template>
         <template #movements>
-            <Movements />
+            <Movements data-testid="movements-component" />
         </template>
     </Layout>
 </template>

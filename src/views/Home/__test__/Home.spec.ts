@@ -7,6 +7,8 @@ describe('Home view tests', () => {
     test('renders properly', () => {
         render(Home)
 
-        expect(screen.getByText(/hello world!/i)).toBeVisible()
+        expect(screen.getByTestId('header-component')).toBeInTheDocument()
+        expect(screen.getByTestId('resume-component')).toBeInTheDocument()
+        expect(screen.getByTestId('movements-component')).toBeInTheDocument()
     })
 })
