@@ -66,5 +66,6 @@ import { ref } from 'vue';
   height: 8px;
   background-color: #e5e5e5;
   border-radius: 4px;
+  cursor: pointer;
 }
 </style>
