@@ -1,12 +1,12 @@
 <template>
-  <suspense>
+  <Suspense>
     <template #default>
       <home />
     </template>
     <template #fallback>
       <splash-screen />
     </template>
-  </suspense>
+  </Suspense>
 </template>
 
 <script setup lang="ts">
@@ -19,16 +19,3 @@
     return component;
   })
 </script>
-
-<style scoped>
-  html,body,.app {
-    min-height: 100vh;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  *{
-    --brand-green: #04b500;
-    --brand-blue: #0689b0;
-  }
-</style>
