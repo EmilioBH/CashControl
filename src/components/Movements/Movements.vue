@@ -8,7 +8,8 @@
               :id="id" 
               :title="title"
               :description="description"
-              :amount="amount" 
+              :amount="amount"
+              @remove-movement="removeMovement"
             />
         </div>
     </div>
@@ -26,7 +27,12 @@
       default: []
   })
 
-    const { movements } = toRefs(props)
+  const { movements } = toRefs(props)
+
+  const removeMovement = (id: any) => {
+    console.log('remove', id);
+    
+  }
 </script>
 
 <style scoped>
