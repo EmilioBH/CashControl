@@ -1,6 +1,13 @@
 <template>
     <div class="movement">
-        {{ title }}
+        <div class="content">
+            <h4>{{ title }}</h4>
+            <p>{{ description }}</p>
+        </div>
+        <div class="action">
+            --imagen--
+            <p>{{ amount }}</p>
+        </div>
     </div>
 </template>
 
@@ -8,10 +15,13 @@
 import { toRefs } from 'vue';
 
     const props = defineProps({
-        title: String
+        id: Number,
+        title: String,
+        description: String,
+        amount: String
     })
 
-    const {title} = toRefs(props)
+    const { id, title, description, amount} = toRefs(props)
 </script>
 
 <style scoped>

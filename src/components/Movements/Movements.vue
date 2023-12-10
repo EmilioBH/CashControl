@@ -2,7 +2,14 @@
     <div class="movements">
         <h2 class="title">Historial</h2>
         <div class="content">
-            <movement-card v-for="movement in movements" :key="movement.id" :title="movement.title" />
+            <movement-card 
+              v-for="{ id, title, description, amount } in movements" 
+              :key="id"
+              :id="id" 
+              :title="title"
+              :description="description"
+              :amount="amount" 
+            />
         </div>
     </div>
 </template>
