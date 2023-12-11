@@ -3,7 +3,7 @@
         <p>Ahorro total</p>
         <h1>{{ formatCurrency(amount) }}</h1>
         <div class="graphic">
-          graphic-component
+          <movements-graphic />
         </div>
         <div class="action">
           <add-movement-button />
@@ -15,6 +15,7 @@
     import { formatCurrency } from '../../utils/number'
 
     import AddMovementButton from './AddMovementButton'
+    import MovementsGraphic from './MovementsGraph'
 
     defineProps({
       amount:{ 
