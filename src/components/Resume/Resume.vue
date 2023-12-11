@@ -1,9 +1,9 @@
 <template>
     <main>
         <p>Ahorro total</p>
-        <h1>{{ formatCurrency(amount) }}</h1>
+        <h1>{{ formatCurrency(totalAmount) }}</h1>
         <div class="graphic">
-          <movements-graphic />
+          <movements-graphic :amounts="amounts"/>
         </div>
         <div class="action">
           <add-movement-button />
@@ -17,12 +17,10 @@
     import AddMovementButton from './AddMovementButton'
     import MovementsGraphic from './MovementsGraph'
 
-    defineProps({
-      amount:{ 
-        type: Number,
-        default: 0,
-      }
-    })
+    defineProps<{
+      totalAmount: number,
+      amounts: number[]
+    }>()
 </script>
 
 <style scoped>

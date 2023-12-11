@@ -4,7 +4,7 @@
             <Header data-testid="header-component"></Header>
         </template>
         <template #resume>
-            <Resume data-testid="resume-component" :amount="10000"/>
+            <Resume data-testid="resume-component" :total-amount="totalAmount" :amounts="amounts"/>
         </template>
         <template #movements>
             <Movements data-testid="movements-component" :movements="movements"/>
@@ -13,41 +13,49 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import Resume from '../../components/Resume';
 import Movements from '../../components/Movements'
 
-const movements = [
+import { Movement } from '../../modules/movements.types';
+
+const amounts = computed(() => movements.map( mov => mov.amount ))
+
+const totalAmount = computed(() => movements.reduce((sum,mov) => sum+mov.amount, 0 ))
+
+const movements: Movement[] = [
     {
         id: 1,
         title: "Movimiento",
         description: "Deposito de salario",
-        amount: "1000",
+        amount: 1000,
     },
     {
         id: 2,
         title: "Movimiento 1",
         description: "Deposito de honorarios",
-        amount: "500",
+        amount: 500,
     },
     {
         id: 3,
         title: "Movimiento 3",
         description: "Comida",
-        amount: "-100",
+        amount: -100,
     },
     {
         id: 4,
         title: "Movimiento 4",
         description: "Colegiatura",
-        amount: "1000",
+        amount: 1000,
     },
     {
         id: 5,
         title: "Movimiento 5",
         description: "Reparación equipo",
-        amount: "1000",
+        amount: 1000,
     },
 ]
 </script>

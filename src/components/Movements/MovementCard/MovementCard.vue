@@ -25,7 +25,7 @@ import { formatCurrency } from '../../../utils/number';
         id: Number,
         title: String,
         description: String,
-        amount: String
+        amount: Number
     })
 
     const emit = defineEmits(['removeMovement'])
@@ -33,11 +33,11 @@ import { formatCurrency } from '../../../utils/number';
     const { id, title, description, amount} = toRefs(props)
 
     const isNegative = computed(() => {
-        const parseAmount = (amount:string|undefined) => {
+        const parseAmount = (amount:number|undefined) => {
             if(amount===undefined){
                 return 0
             }else{
-                return parseFloat(amount)
+                return amount
             }
         }
 

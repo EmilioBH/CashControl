@@ -19,7 +19,6 @@
   import { PropType, toRefs } from 'vue';
 
   import MovementCard from './MovementCard'
-
   import type { Movement } from '../../modules/movements.types'; 
 
   const props = defineProps({
@@ -31,7 +30,6 @@
 
   const removeMovement = (id: any) => {
     console.log('remove', id);
-    
   }
 </script>
 
