@@ -1,11 +1,11 @@
 import { describe, test, expect } from 'vitest'
 import { screen, render } from '@testing-library/vue'
 import '@testing-library/jest-dom'
-import Home from '..'
+import AddMovementButton from '..'
 
-describe('Home view tests', () => {
+describe('AddMovementButton', () => {
     test('renders properly', () => {
-        render(Home, {
+        render(AddMovementButton, {
             global: {
                 stubs: {
                     Teleport: true
@@ -13,8 +13,6 @@ describe('Home view tests', () => {
             }
         })
 
-        expect(screen.getByTestId('header-component')).toBeInTheDocument()
-        expect(screen.getByTestId('resume-component')).toBeInTheDocument()
-        expect(screen.getByTestId('movements-component')).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: /agregar movimiento/i }))
     })
 })

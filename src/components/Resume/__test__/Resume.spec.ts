@@ -8,6 +8,11 @@ describe('Resume Component', () => {
         render(Resume, {
             props: {
                 amount: '1000'
+            },
+            global: {
+                stubs: {
+                    Teleport: true
+                }
             }
         })
 
