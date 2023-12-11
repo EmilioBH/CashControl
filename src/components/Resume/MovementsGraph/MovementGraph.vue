@@ -30,7 +30,7 @@
             const x = (300/amountLength) * (index+1)
             const y = amountToPixels(amount)
             return `${points} ${x},${y}`
-        }, "0, 100")
+        }, "0, 200")
     })
 
     const zero = computed(() => {
