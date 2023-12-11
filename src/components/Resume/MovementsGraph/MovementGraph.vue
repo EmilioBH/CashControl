@@ -1,19 +1,21 @@
 <template>
     <div>
         <svg
+            @touchstart="tapScreen"
+            @touchmove="tapScreen"
+            @touchend="untapScreen"
             viewBox="0 0 300 200"
         >
             <line stroke="#c4c4c4" stroke-width="2" x1="0" :y1="zero" x2="300" :y2="zero"/>
             <polyline fill="none" stroke="#0689B0" stroke-width="2" :points="graphPoints"/>
-            <line stroke="#04b500" stroke-width="2" x1="200" y1="0" x2="200" y2="200"/>
+            <line v-if="showPointer" stroke="#04b500" stroke-width="2" :x1="pointer" y1="0" :x2="pointer" y2="200"/>
         </svg>
         <p>Last 30 days</p>
-        <p>{{ graphPoints }}</p>
     </div>
 </template>
 
 <script setup lang="ts">
-    import { computed, toRefs } from 'vue'
+    import { computed, ref, toRefs } from 'vue'
 
     const props = defineProps<{
         amounts: number[]
@@ -43,6 +45,23 @@
         const minMax: number = Math.abs(max) + Math.abs(min);
 
         return 200 - ((amountAbs * 100)/ minMax)*2
+    }
+
+    const showPointer = ref<boolean>(false)
+
+    const pointer = ref(0)
+
+    const tapScreen = ({ target, touches }:any) => {
+        showPointer.value = true
+        const elementWidth = target.getBoundingClientRect().width;
+        const elementX = target.getBoundingClientRect().x;
+        const touchX = touches[0].clientX;
+
+        pointer.value = ((touchX -elementX) * 300) /elementWidth
+    }
+
+    const untapScreen = () => {
+        showPointer.value = false
     }
 </script>
 
