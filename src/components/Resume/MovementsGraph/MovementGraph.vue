@@ -27,10 +27,10 @@
         const amountLength = props.amounts.length
 
         return amounts.value.reduce((points, amount, index) => {
-            const x = (300/amountLength) * (index+1)
+            const x = (300/amountLength) * (index)
             const y = amountToPixels(amount)
             return `${points} ${x},${y}`
-        }, "0, 100")
+        },"0, 200")
     })
 
     const zero = computed(() => {
