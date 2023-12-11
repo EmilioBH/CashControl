@@ -7,7 +7,8 @@ describe('Resume Component', () => {
     test('renders properly', () => {
         render(Resume, {
             props: {
-                amount: '1000'
+                totalAmount: 1000,
+                amounts: [100, 200, 300]
             },
             global: {
                 stubs: {
