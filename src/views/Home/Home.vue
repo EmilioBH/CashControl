@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, computed, inject } from 'vue';
+import { Ref, computed, inject, ref, watchEffect } from 'vue';
 
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
@@ -23,25 +23,25 @@ import Movements from '../../components/Movements'
 import { Movement } from '../../modules/movements.types';
 
 const movements = inject<Ref<Movement[]>>('movements')
+const amounts = ref<number[]>([])
 
-const amounts = computed(() => {
-    if(!movements){
-        return []
-    }
-    const lastAmounts = movements.value.filter(mov => {
-        const today = new Date();
-        const oldDate = today.setDate(today.getDate() - 30);
-        return mov.time > new Date(oldDate)
-    } ).map( mov => mov.amount)
+watchEffect(() => {
+  if (!movements || movements.value.length === 0) {
+    amounts.value = [];
+    return;
+  }
 
-    return lastAmounts?.map( (_, i) => {
-        const lastMovements = lastAmounts.slice(0, i + 1)
+  const lastAmounts = movements.value.filter(mov => {
+    const today = new Date();
+    const oldDate = new Date(today.setDate(today.getDate() - 30));
+    return new Date(mov.time) > oldDate;
+  }).map(mov => mov.amount);
 
-        return lastMovements.reduce((sum, mov) => {
-            return sum + mov
-        } , 0)
-    } )
-})
+  amounts.value = lastAmounts.map((_, i) => {
+    const lastMovements = lastAmounts.slice(0, i + 1);
+    return lastMovements.reduce((sum, current) => sum + current, 0);
+  });
+});
 
 const totalAmount = computed(() => {
     if(!movements){
