@@ -27,10 +27,10 @@ import { computed, ref, toRefs } from 'vue'
         const amountLength = props.amounts.length
 
         return amounts.value.reduce((points, amount, index) => {
-            const x = (300/amountLength) * (index)
+            const x = (300/amountLength) * (index + 1)
             const y = amountToPixels(amount)
             return `${points} ${x},${y}`
-        }, "0, 200")
+        }, `0, ${amountToPixels(amounts.value.length ? amounts.value[0] : 0)}`)
     })
 
     const zero = computed(() => {
