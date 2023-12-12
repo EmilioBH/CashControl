@@ -1,5 +1,5 @@
 <template>
-    <button @click="showModal = true">Agregar movimiento</button>
+    <button @click="showModal = true">Add movement</button>
     <Teleport to="#app">
       <new-movement-modal v-if="showModal" @close-modal="showModal = false"/>
     </Teleport>

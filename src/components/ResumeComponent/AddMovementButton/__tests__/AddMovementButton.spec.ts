@@ -13,6 +13,6 @@ describe('AddMovementButton', () => {
             }
         })
 
-        expect(screen.getByRole('button', { name: /agregar movimiento/i }))
+        expect(screen.getByRole('button', { name: /add movement/i }))
     })
 })
