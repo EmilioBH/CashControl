@@ -1,6 +1,6 @@
 <template>
     <div class="movements">
-        <h2 class="title">Historial</h2>
+        <h2 class="title">Movement Historical</h2>
         <div class="content">
             <movement-card 
               v-for="{ id, title, description, amount } in movements" 
@@ -10,6 +10,7 @@
               :description="description"
               :amount="amount"
               @remove-movement="removeMovement"
+              data-testid="movement-card"
             />
         </div>
     </div>
@@ -22,8 +23,7 @@
   import type { Movement } from '../../modules/movements.types'; 
 
   const props = defineProps({
-      movements: Object as PropType<Movement[]>,
-      default: []
+      movements: Object as PropType<Movement[]>
   })
 
   const { movements } = toRefs(props)

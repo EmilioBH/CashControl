@@ -17,7 +17,7 @@ describe('Resume Component', () => {
             }
         })
 
-        expect(screen.getByText(/ahorro total/i)).toBeVisible()
+        expect(screen.getByText(/total savings/i)).toBeVisible()
         expect(screen.getByText('1.000,00 €')).toBeVisible()
     })
 })

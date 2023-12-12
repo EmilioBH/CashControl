@@ -1,13 +1,14 @@
 <template>
     <div>
         <svg
+            data-testid="svg-graph"
             @touchstart.passive="tapScreen"
             @touchmove.passive="tapScreen"
             @touchend="untapScreen"
             viewBox="0 0 300 200"
         >
-            <line stroke="#c4c4c4" stroke-width="2" x1="0" :y1="zero" x2="300" :y2="zero"/>
-            <polyline fill="none" stroke="#0689B0" stroke-width="2" :points="graphPoints"/>
+            <line data-testid="svg-line" stroke="#c4c4c4" stroke-width="2" x1="0" :y1="zero" x2="300" :y2="zero"/>
+            <polyline data-testid="svg-polyline" fill="none" stroke="#0689B0" stroke-width="2" :points="graphPoints"/>
             <line v-if="showPointer" stroke="#04b500" stroke-width="2" :x1="pointer ?? zero" y1="0" :x2="pointer ?? zero" y2="200"/>
         </svg>
         <p>Last 30 days</p>

@@ -1,35 +1,39 @@
 <template>
     <div class="modal">
         <div class="head">
-            <p>Nuevo movimiento</p>
-            <i class="pi pi-times" style="font-size: 1.5rem; color: var(--brand-blue)" @click="closeModal" />
+            <p>New Movement</p>
+            <i class="pi pi-times" style="font-size: 1.5rem; color: var(--brand-blue)" data-testid="close-btn" @click="closeModal" />
         </div>
         <div class="body">
-            <form @submit.prevent="formSubmit">
+            <form @submit.prevent="formSubmit" data-testid="form">
               <div class="field">
-                <label>Title</label>
-                <input type="text" v-model="title">
+                <label for="title">
+                  Title
+                  <input type="text" id="title" v-model="title">
+                </label>
               </div>
               <div class="field">
-                <label>Amount</label>
-                <input type="number" v-model="amount">
+                <label for="amount">
+                  Amount
+                  <input type="number" id="amount" v-model="amount">
+                </label>
               </div>
               <div class="field">
-                <label>Description</label>
+                <label for="description">Description</label>
                 <textarea rows="4" v-model="description"></textarea>
               </div>
               <div class="field">
                 <label class="radio-label">
-                  <input type="radio" v-model="movementType" value="Ingreso">
-                  <span>Ingreso</span>
+                  <input type="radio" v-model="movementType" value="Income">
+                  <span>Income</span>
                 </label>
                 <label class="radio-label">
-                  <input type="radio" v-model="movementType" value="Gasto">
-                  <span>Gasto</span>
+                  <input type="radio" v-model="movementType" value="Expense">
+                  <span>Expense</span>
                 </label>
               </div>
               <div class="action">
-                <button :disabled="isButtonDisbled" >Agregar</button>
+                <button :disabled="isButtonDisbled">Add Movement</button>
               </div>
             </form>
         </div>
@@ -48,7 +52,7 @@ const emit = defineEmits(['closeModal'])
 const title = ref<string>('')
 const amount = ref<number>()
 const description = ref<string>('')
-const movementType = ref<'Ingreso'|'Gasto'>('Ingreso')
+const movementType = ref<'Income'|'Expense'>('Income')
 
 const closeModal = () => emit('closeModal')
 
@@ -59,7 +63,7 @@ const formSubmit = () => {
     const newMovement: Movement = {
       id: new Date().getTime(),
       title: title.value,
-      amount: movementType.value === 'Ingreso'  ? amount.value : -amount.value,
+      amount: movementType.value === 'Income'  ? amount.value : -amount.value,
       description: description.value,
       time: new Date()
     }
