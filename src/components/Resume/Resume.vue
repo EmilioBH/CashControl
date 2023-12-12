@@ -1,7 +1,7 @@
 <template>
     <main>
         <p>Ahorro total</p>
-        <h1>{{ formatCurrency(totalAmount) }}</h1>
+        <h1>{{ totalAmount ? formatCurrency(totalAmount) : formatCurrency(0) }}</h1>
         <div class="graphic">
           <movements-graphic :amounts="amounts"/>
         </div>
@@ -18,7 +18,7 @@
     import MovementsGraphic from './MovementsGraph'
 
     defineProps<{
-      totalAmount: number,
+      totalAmount: number | undefined,
       amounts: number[]
     }>()
 </script>

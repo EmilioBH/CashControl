@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { Ref, computed, inject } from 'vue';
 
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
@@ -22,14 +22,19 @@ import Movements from '../../components/Movements'
 
 import { Movement } from '../../modules/movements.types';
 
+const movements = inject<Ref<Movement[]>>('movements')
+
 const amounts = computed(() => {
-    const lastAmounts = movements.filter(mov => {
+    if(!movements){
+        return [0]
+    }
+    const lastAmounts = movements.value.filter(mov => {
         const today = new Date();
         const oldDate = today.setDate(today.getDate() - 30);
         return mov.time > new Date(oldDate)
     } ).map( mov => mov.amount)
 
-    return lastAmounts.map( (mov, i) => {
+    return lastAmounts?.map( (mov, i) => {
         const lastMovements = lastAmounts.slice(0, i)
         mov
 
@@ -39,45 +44,12 @@ const amounts = computed(() => {
     } )
 })
 
-const totalAmount = computed(() => movements.reduce((sum,mov) => sum+mov.amount, 0 ))
+const totalAmount = computed(() => {
+    if(!movements){
+        return 0
+    }
+    return movements.value.reduce((sum, { amount }) => sum+amount, 0 )})
 
-const movements: Movement[] = [
-    {
-        id: 1,
-        title: "Movimiento",
-        description: "Deposito de salario",
-        amount: 1000,
-        time: new Date("12-10-2023")
-    },
-    {
-        id: 2,
-        title: "Movimiento 1",
-        description: "Deposito de honorarios",
-        amount: 500,
-        time: new Date("12-10-2023")
-    },
-    {
-        id: 3,
-        title: "Movimiento 3",
-        description: "Comida",
-        amount: -100,
-        time: new Date("12-10-2023")
-    },
-    {
-        id: 4,
-        title: "Movimiento 4",
-        description: "Colegiatura",
-        amount: 1000,
-        time: new Date("12-10-2023")
-    },
-    {
-        id: 5,
-        title: "Movimiento 5",
-        description: "Reparación equipo",
-        amount: 1000,
-        time: new Date("12-10-2023")
-    },
-]
 </script>
 
 <style scoped>

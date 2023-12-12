@@ -37,7 +37,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, inject, Ref } from 'vue';
+import { Movement } from '../../../modules/movements.types';
+
+const movements = inject<Ref<Movement[]>>('movements')
+const addMovement = inject<(mov: Movement) => void>('addMovement')
 
 const emit = defineEmits(['closeModal'])
 
@@ -50,6 +54,20 @@ const closeModal = () => emit('closeModal')
 
 const formSubmit = () => {
   emit('closeModal')
+
+  if(movements && amount.value){
+    const newMovement: Movement = {
+      id: new Date().getTime(),
+      title: title.value,
+      amount: movementType.value === 'Ingreso'  ? amount.value : -amount.value,
+      description: description.value,
+      time: new Date()
+    }
+    if(addMovement){
+      addMovement(newMovement)
+    }
+  }
+  
 }
 </script>
 
