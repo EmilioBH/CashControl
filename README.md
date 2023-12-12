@@ -1,6 +1,6 @@
 # CashControl App
 
-![CashControl logo](src/assets/cashcontrol-icon.svg)
+<img src="src/assets/cashcontrol-icon.svg" width="300" height="300" alt="CashControl-logo">
 
 CashControl App is a personal finance management tool designed to keep your finances well-organized and accessible at a glance. With an intuitive interface, this application simplifies tracking and managing your financial activities.
 
@@ -39,7 +39,7 @@ To set up CashControl App locally, follow these steps:
 git clone https://github.com/EmilioBH/CashControl.git
 cd CashControl-App
 npm install
-
+```
 ## Usage
 
 After installing the CashControl App, you can interact with it in various ways:
@@ -62,7 +62,7 @@ To run the tests in CashControl App, use the following command:
 
 ```bash
 npm run test
-
+```
 ## Deployment
 
 CashControl App is deployed and can be accessed at the following URL: [CashControl App Live Version](https://cash-control-app.netlify.app/).
