@@ -1,28 +1,28 @@
 <template>
-    <template class="header">
-        <slot name="header"></slot>
-    </template>
-    <template class="resume">
-        <slot name="resume"></slot>
-    </template>
-    <template class="movements">
-        <div class="head" @click="showMovements = !showMovements">
-            <div class="grip"></div>
-        </div>
-        <div class="body" v-show="showMovements">
-            <slot name="movements"></slot>
-        </div>
-    </template>
+  <template class="header">
+    <slot name="header"></slot>
+  </template>
+  <template class="resume">
+    <slot name="resume"></slot>
+  </template>
+  <template class="movements">
+    <div class="head" @click="showMovements = !showMovements">
+      <div class="grip"></div>
+    </div>
+    <div class="body" v-show="showMovements">
+      <slot name="movements"></slot>
+    </div>
+  </template>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+  import { ref } from 'vue';
 
-    const showMovements = ref(false)
+  const showMovements = ref(false)
 </script>
 
 <style scoped>
-    .header,
+.header,
 .resume,
 .movements {
   display: flex;

@@ -1,19 +1,19 @@
 <template>
-    <div class="movements">
-        <h2 class="title">Movement Historical</h2>
-        <div class="content">
-            <movement-card 
-              v-for="{ id, title, description, amount } in movements" 
-              :key="id"
-              :id="id" 
-              :title="title"
-              :description="description"
-              :amount="amount"
-              @remove-movement="removeMovement"
-              data-testid="movement-card"
-            />
-        </div>
+  <div class="movements">
+    <h2 class="title">Movement Historical</h2>
+    <div class="content">
+        <movement-card 
+          v-for="{ id, title, description, amount } in movements" 
+          :key="id"
+          :id="id" 
+          :title="title"
+          :description="description"
+          :amount="amount"
+          @remove-movement="removeMovement"
+          data-testid="movement-card"
+        />
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -23,7 +23,7 @@
   import type { Movement } from '../../modules/movements.types'; 
 
   const props = defineProps({
-      movements: Object as PropType<Movement[]>
+    movements: Object as PropType<Movement[]>
   })
 
   const { movements } = toRefs(props)

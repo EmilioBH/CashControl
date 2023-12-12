@@ -4,9 +4,9 @@ import '@testing-library/jest-dom'
 import MovementsComponent from '..'
 
 describe('Movements Component', () => {
-    test('renders properly', () => {
-        render(MovementsComponent)
+  test('renders properly', () => {
+    render(MovementsComponent)
 
-        expect(screen.getByText(/movement historical/i)).toBeVisible()
-    })
+    expect(screen.getByText(/movement historical/i)).toBeVisible()
+  })
 })

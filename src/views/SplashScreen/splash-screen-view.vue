@@ -1,13 +1,15 @@
 <template>
-    <div class="splashscreen">
-        <img src="../../assets/cashcontrol-icon.svg" data-testid="splash-icon" alt="cashcontrol-logo" height="250" width="250" />
-        <h1><span>Cash</span>Control</h1>
-    </div>
+  <div class="splashscreen">
+    <img 
+      src="../../assets/cashcontrol-icon.svg" 
+      data-testid="splash-icon" 
+      alt="cashcontrol-logo" 
+      height="250" 
+      width="250" 
+    />
+    <h1><span>Cash</span>Control</h1>
+  </div>
 </template>
-
-<script setup lang="ts">
-
-</script>
 
 <style scoped>
 .splashscreen {

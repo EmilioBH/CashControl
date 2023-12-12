@@ -1,13 +1,20 @@
 <template>
   <layout-component>
     <template #header>
-      <header-component data-testid="header-component"></header-component>
+      <header-component data-testid="header-component" />
     </template>
     <template #resume>
-      <resume-component data-testid="resume-component" :total-amount="totalAmount" :amounts="amounts"/>
+      <resume-component 
+        data-testid="resume-component"  
+        :total-amount="totalAmount" 
+        :amounts="amounts"
+      />
     </template>
     <template #movements>
-      <movements-component data-testid="movements-component" :movements="movements"/>
+      <movements-component 
+        data-testid="movements-component" 
+        :movements="movements"
+      />
     </template>
   </layout-component>
 </template>

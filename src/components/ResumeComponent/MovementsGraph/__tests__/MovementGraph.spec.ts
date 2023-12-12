@@ -6,9 +6,9 @@ import MovementsGraph from '..';
 describe('MovementsGraph', () => {
   test('renders SVG graph properly', () => {
     render(MovementsGraph, {
-        props: {
-            amounts: [100, 300, 100]
-        }
+      props: {
+        amounts: [100, 300, 100]
+      }
     })
    
 
@@ -17,9 +17,9 @@ describe('MovementsGraph', () => {
 
   test('renders de lines in the graph', () => {
     render(MovementsGraph, {
-        props: {
-            amounts: [100, 300, 100]
-        }
+      props: {
+        amounts: [100, 300, 100]
+      }
     })
 
     expect(screen.getByTestId('svg-line')).toBeInTheDocument()

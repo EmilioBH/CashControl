@@ -1,42 +1,47 @@
 <template>
   <div class="modal">
-      <div class="head">
-          <p>New Movement</p>
-          <i class="pi pi-times" style="font-size: 1.5rem; color: var(--brand-blue)" data-testid="close-btn" @click="closeModal" />
-      </div>
-      <div class="body">
-          <form @submit.prevent="formSubmit" data-testid="form">
-            <div class="field">
-              <label for="title" class="label-form">
-                Title
-                <input type="text" id="title" v-model="title">
-              </label>
-            </div>
-            <div class="field">
-              <label for="amount" class="label-form">
-                Amount
-                <input type="number" id="amount" v-model="amount">
-              </label>
-            </div>
-            <div class="field">
-              <label for="description">Description</label>
-              <textarea rows="4" v-model="description"></textarea>
-            </div>
-            <div class="field">
-              <label class="radio-label">
-                <input type="radio" v-model="movementType" value="Income">
-                <span>Income</span>
-              </label>
-              <label class="radio-label">
-                <input type="radio" v-model="movementType" value="Expense">
-                <span>Expense</span>
-              </label>
-            </div>
-            <div class="action">
-              <button :disabled="isButtonDisbled">Add Movement</button>
-            </div>
-          </form>
-      </div>
+    <div class="head">
+      <p>New Movement</p>
+      <i 
+        class="pi pi-times" 
+        style="font-size: 1.5rem; color: var(--brand-blue)" 
+        data-testid="close-btn" 
+        @click="closeModal" 
+      />
+    </div>
+    <div class="body">
+      <form @submit.prevent="formSubmit" data-testid="form">
+        <div class="field">
+          <label for="title" class="label-form">
+            Title
+            <input type="text" id="title" v-model="title">
+          </label>
+        </div>
+        <div class="field">
+          <label for="amount" class="label-form">
+            Amount
+            <input type="number" id="amount" v-model="amount">
+          </label>
+        </div>
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea rows="4" v-model="description"></textarea>
+        </div>
+        <div class="field">
+          <label class="radio-label">
+            <input type="radio" v-model="movementType" value="Income">
+            <span>Income</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" v-model="movementType" value="Expense">
+            <span>Expense</span>
+          </label>
+        </div>
+        <div class="action">
+          <button :disabled="isButtonDisbled">Add Movement</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
