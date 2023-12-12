@@ -34,9 +34,8 @@ const amounts = computed(() => {
         return mov.time > new Date(oldDate)
     } ).map( mov => mov.amount)
 
-    return lastAmounts?.map( (mov, i) => {
-        const lastMovements = lastAmounts.slice(0, i)
-        mov
+    return lastAmounts?.map( (_, i) => {
+        const lastMovements = lastAmounts.slice(0, i + 1)
 
         return lastMovements.reduce((sum, mov) => {
             return sum + mov

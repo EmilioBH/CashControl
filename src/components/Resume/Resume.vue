@@ -1,26 +1,26 @@
 <template>
-    <main>
-        <p>Ahorro total</p>
-        <h1>{{ totalAmount ? formatCurrency(totalAmount) : formatCurrency(0) }}</h1>
-        <div class="graphic">
-          <movements-graphic :amounts="amounts"/>
-        </div>
-        <div class="action">
-          <add-movement-button />
-        </div>
-    </main>
+  <main>
+    <p>Ahorro total</p>
+    <h1>{{ totalAmount ? formatCurrency(totalAmount) : formatCurrency(0) }}</h1>
+    <div class="graphic">
+      <movements-graphic :amounts="amounts"/>
+    </div>
+    <div class="action">
+      <add-movement-button />
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">
-    import { formatCurrency } from '../../utils/number'
+  import { formatCurrency } from '../../utils/number'
 
-    import AddMovementButton from './AddMovementButton'
-    import MovementsGraphic from './MovementsGraph'
+  import AddMovementButton from './AddMovementButton'
+  import MovementsGraphic from './MovementsGraph'
 
-    defineProps<{
-      totalAmount: number | undefined,
-      amounts: number[]
-    }>()
+  defineProps<{
+    totalAmount: number | undefined,
+    amounts: number[]
+  }>()
 </script>
 
 <style scoped>

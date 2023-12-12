@@ -29,7 +29,7 @@
                 </label>
               </div>
               <div class="action">
-                <button>Agregar</button>
+                <button :disabled="isButtonDisbled" >Agregar</button>
               </div>
             </form>
         </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, inject, Ref } from 'vue';
+import { ref, inject, Ref, computed } from 'vue';
 import { Movement } from '../../../modules/movements.types';
 
 const movements = inject<Ref<Movement[]>>('movements')
@@ -69,6 +69,10 @@ const formSubmit = () => {
   }
   
 }
+
+const isButtonDisbled = computed(() => {
+  return title.value.trim() === '' || amount.value === undefined || amount.value < 0
+})
 </script>
 
 <style scoped>
@@ -106,6 +110,10 @@ button {
   padding: 24px 60px;
   border-radius: 60px;
   box-sizing: border-box;
+}
+
+button:disabled {
+  background-color: grey;
 }
 
 form {
