@@ -30,8 +30,6 @@ const deleteMovement = inject<(id: number) => void>('deleteMovement')
         amount: number
     }>()
 
-    const emit = defineEmits(['removeMovement'])
-
     const { id, title, description, amount} = toRefs(props)
 
     const isNegative = computed(() => {

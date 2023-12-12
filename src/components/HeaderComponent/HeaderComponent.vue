@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <img @click="reload" src="../../assets/cashcontrol-icon.svg" alt="cashcontrol-logo">
+        <img @click="reload" src="../../assets/cashcontrol-icon.svg" alt="cashcontrol-logo" data-testid="brand-logo">
         <h1><span>Cash</span>Control</h1>
         <span></span>
     </div>

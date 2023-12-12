@@ -1,6 +1,6 @@
 <template>
   <main>
-    <p>Ahorro total</p>
+    <p>Total savings</p>
     <h1>{{ totalAmount ? formatCurrency(totalAmount) : formatCurrency(0) }}</h1>
     <div class="graphic">
       <movements-graphic :amounts="amounts"/>

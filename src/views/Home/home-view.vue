@@ -47,10 +47,7 @@ const totalAmount = computed(() => {
     if(!movements){
         return 0
     }
-    return movements.value.reduce((sum, { amount }) => sum+amount, 0 )})
-
+    return movements.value.reduce((sum, { amount }) => sum+amount, 0 )
+  }
+)
 </script>
-
-<style scoped>
-
-</style>../../components/HeaderComponent../../components/MovementsComponent
