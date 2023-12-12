@@ -6,7 +6,6 @@ const storedMovements = localStorage.getItem('movements')
 const movements = ref<Movement[]>(storedMovements ? JSON.parse(storedMovements) : [])
 
 const addMovement = (mov: Movement) => {
-    debugger
     movements.value.push(mov)
     saveMovements()
 }

@@ -26,7 +26,7 @@ const movements = inject<Ref<Movement[]>>('movements')
 
 const amounts = computed(() => {
     if(!movements){
-        return [0]
+        return []
     }
     const lastAmounts = movements.value.filter(mov => {
         const today = new Date();
