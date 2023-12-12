@@ -1,24 +1,24 @@
 <template>
-    <Layout>
-        <template #header>
-            <Header data-testid="header-component"></Header>
-        </template>
-        <template #resume>
-            <Resume data-testid="resume-component" :total-amount="totalAmount" :amounts="amounts"/>
-        </template>
-        <template #movements>
-            <Movements data-testid="movements-component" :movements="movements"/>
-        </template>
-    </Layout>
+  <layout-component>
+    <template #header>
+      <header-component data-testid="header-component"></header-component>
+    </template>
+    <template #resume>
+      <resume-component data-testid="resume-component" :total-amount="totalAmount" :amounts="amounts"/>
+    </template>
+    <template #movements>
+      <movements-component data-testid="movements-component" :movements="movements"/>
+    </template>
+  </layout-component>
 </template>
 
 <script setup lang="ts">
 import { Ref, computed, inject, ref, watchEffect } from 'vue';
 
-import Layout from '../../components/Layout';
-import Header from '../../components/Header';
-import Resume from '../../components/Resume';
-import Movements from '../../components/Movements'
+import LayoutComponent from '../../components/LayoutComponent';
+import HeaderComponent from '../../components/HeaderComponent';
+import ResumeComponent from '../../components/ResumeComponent';
+import MovementsComponent from '../../components/MovementsComponent'
 
 import { Movement } from '../../modules/movements.types';
 
@@ -53,4 +53,4 @@ const totalAmount = computed(() => {
 
 <style scoped>
 
-</style>
+</style>../../components/HeaderComponent../../components/MovementsComponent

@@ -1,1 +1,1 @@
-export { default } from './SplashScreen.vue'
+export { default } from './splash-screen-view.vue'
