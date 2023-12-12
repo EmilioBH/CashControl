@@ -7,7 +7,7 @@
         <div class="action">
             <i 
                 class="pi pi-trash" style="font-size: 1.5rem" 
-                @click="removeMovement"
+                @click="removeMovementById"
                 data-testid="trash-icon"
             />
             <p :class="[{ 'red': isNegative, 'green': !isNegative }]">
@@ -18,15 +18,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed, toRefs } from 'vue';
+import { computed, toRefs, inject } from 'vue';
 import { formatCurrency } from '../../../utils/number';
 
-    const props = defineProps({
-        id: Number,
-        title: String,
-        description: String,
-        amount: Number
-    })
+const deleteMovement = inject<(id: number) => void>('deleteMovement')
+
+    const props = defineProps<{
+        id: number,
+        title: string,
+        description: string,
+        amount: number
+    }>()
 
     const emit = defineEmits(['removeMovement'])
 
@@ -44,8 +46,11 @@ import { formatCurrency } from '../../../utils/number';
         return parseAmount(amount?.value) < 0
     })
 
-    const removeMovement = () => {
-        emit('removeMovement', id?.value)
+    const removeMovementById = () => {
+        if(deleteMovement){
+            deleteMovement(id.value)
+        }
+        
     }
 </script>
     

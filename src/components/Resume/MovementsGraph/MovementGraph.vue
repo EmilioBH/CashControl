@@ -1,21 +1,21 @@
 <template>
     <div>
         <svg
-            @touchstart="tapScreen"
-            @touchmove="tapScreen"
+            @touchstart.passive="tapScreen"
+            @touchmove.passive="tapScreen"
             @touchend="untapScreen"
             viewBox="0 0 300 200"
         >
             <line stroke="#c4c4c4" stroke-width="2" x1="0" :y1="zero" x2="300" :y2="zero"/>
             <polyline fill="none" stroke="#0689B0" stroke-width="2" :points="graphPoints"/>
-            <line v-if="showPointer" stroke="#04b500" stroke-width="2" :x1="pointer" y1="0" :x2="pointer" y2="200"/>
+            <line v-if="showPointer" stroke="#04b500" stroke-width="2" :x1="pointer ?? zero" y1="0" :x2="pointer ?? zero" y2="200"/>
         </svg>
         <p>Last 30 days</p>
     </div>
 </template>
 
 <script setup lang="ts">
-    import { computed, ref, toRefs } from 'vue'
+import { computed, ref, toRefs } from 'vue'
 
     const props = defineProps<{
         amounts: number[]
@@ -27,7 +27,7 @@
         const amountLength = props.amounts.length
 
         return amounts.value.reduce((points, amount, index) => {
-            const x = (300/amountLength) * (index+1)
+            const x = (300/amountLength) * (index)
             const y = amountToPixels(amount)
             return `${points} ${x},${y}`
         }, "0, 200")
