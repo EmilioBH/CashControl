@@ -20,7 +20,7 @@
         <div class="field">
           <label for="amount" class="label-form">
             Amount
-            <input type="number" id="amount" v-model="amount">
+            <input type="number" step="any" id="amount" v-model="amount">
           </label>
         </div>
         <div class="field">
