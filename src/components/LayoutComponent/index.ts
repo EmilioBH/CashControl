@@ -1,1 +1,1 @@
-export { default } from './LayoutComponent.vue'
+export { default } from './LayoutComponent.vue';

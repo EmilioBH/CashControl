@@ -1,17 +1,23 @@
 <template>
   <div class="header">
-    <img @click="reload" src="../../assets/cashcontrol-icon.svg" alt="cashcontrol-logo" data-testid="brand-logo" style="cursor: pointer;">
+    <img
+      alt="cashcontrol-logo"
+      data-testid="brand-logo"
+      style="cursor: pointer"
+      @click="reload"
+      src="../../assets/cashcontrol-icon.svg"
+    />
     <h1><span>Cash</span>Control</h1>
     <span></span>
   </div>
 </template>
 
 <script setup lang="ts">
-  const reload = () => {
-    location.reload()
-  }
+const reload = () => {
+  location.reload();
+};
 </script>
-    
+
 <style scoped>
 .header {
   display: flex;

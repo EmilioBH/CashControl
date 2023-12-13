@@ -1,1 +1,1 @@
-export { default } from './NewMovementModal.vue'
+export { default } from './NewMovementModal.vue';

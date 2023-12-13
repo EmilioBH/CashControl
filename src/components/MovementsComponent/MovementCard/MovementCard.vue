@@ -5,12 +5,13 @@
       <p>{{ description }}</p>
     </div>
     <div class="action">
-      <i 
-        class="pi pi-trash" style="font-size: 1.5rem" 
+      <i
+        class="pi pi-trash"
+        style="font-size: 1.5rem"
         @click="removeMovementById"
         data-testid="trash-icon"
       />
-      <p :class="[{ 'red': isNegative, 'green': !isNegative }]">
+      <p :class="[{ red: isNegative, green: !isNegative }]">
         {{ formatCurrency(amount ?? 0) }}
       </p>
     </div>
@@ -21,37 +22,36 @@
 import { computed, toRefs, inject } from 'vue';
 import { formatCurrency } from '../../../utils/number';
 
-const deleteMovement = inject<(id: number) => void>('deleteMovement')
+const deleteMovement = inject<(id: number) => void>('deleteMovement');
 
-  const props = defineProps<{
-    id: number,
-    title: string,
-    description: string,
-    amount: number
-    }>()
+const props = defineProps<{
+  id: number;
+  title: string;
+  description: string;
+  amount: number;
+}>();
 
-  const { id, title, description, amount} = toRefs(props)
+const { id, title, description, amount } = toRefs(props);
 
-  const isNegative = computed(() => {
-    const parseAmount = (amount:number|undefined) => {
-      if(amount===undefined){
-        return 0
-      }else{
-        return amount
-      }
+const isNegative = computed(() => {
+  const parseAmount = (amount: number | undefined) => {
+    if (amount === undefined) {
+      return 0;
+    } else {
+      return amount;
     }
+  };
 
-    return parseAmount(amount?.value) < 0
-  })
+  return parseAmount(amount?.value) < 0;
+});
 
-  const removeMovementById = () => {
-      if(deleteMovement){
-        deleteMovement(id.value)
-      }
-        
+const removeMovementById = () => {
+  if (deleteMovement) {
+    deleteMovement(id.value);
   }
+};
 </script>
-    
+
 <style scoped>
 .movement {
   display: flex;
