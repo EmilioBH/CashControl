@@ -13,17 +13,21 @@ The inspiration behind CashControl App stemmed from a personal need to better un
 ## Technologies Used
 
 CashControl App is built using a range of modern technologies ensuring efficiency and scalability:
+
 - **HTML and CSS**: For styling the application.
 - **TypeScript**: To enhance code quality and readability with static typing.
 - **Vue 3 with Composition API**: For building the user interface with a reactive and composable approach.
 - **Vite**: As the build tool and development server, offering fast and lean project bundling.
 - **Vitest**: Employed for unit testing, providing a Vite-native test framework.
+- **ESLint**: We use ESLint as a static code analysis tool to identify problematic patterns found in JavaScript/TypeScript code.
+- **Prettier**: Prettier is a code formatter that automates the process of styling code.
 - **Vue Testing Library**: To facilitate testing Vue components with practices similar to React Testing Library.
 - **PrimeIcons**: For incorporating elegant icons throughout the user interface.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
+
 - Git
 - Node.js (latest stable version)
 - npm (comes with Node.js)
@@ -39,6 +43,7 @@ git clone https://github.com/EmilioBH/CashControl.git
 cd CashControl-App
 npm install
 ```
+
 ## Usage
 
 After installing the CashControl App, you can interact with it in various ways:
@@ -62,6 +67,7 @@ To run the tests in CashControl App, use the following command:
 ```bash
 npm run test
 ```
+
 ## Deployment
 
 CashControl App is deployed and can be accessed at the following URL: [CashControl App Live Version](https://cash-control-app.netlify.app/).
