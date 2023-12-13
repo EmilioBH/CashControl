@@ -1,1 +1,1 @@
-export { default } from './MovementCard.vue'
+export { default } from './MovementCard.vue';

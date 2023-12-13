@@ -1,11 +1,11 @@
 <template>
   <main>
     <p>Total savings</p>
-    <h1 :class="[{ 'red': isNegative, 'green': !isNegative }]">
+    <h1 :class="[{ red: isNegative, green: !isNegative }]">
       {{ totalAmount ? formatCurrency(totalAmount) : formatCurrency(0) }}
     </h1>
     <div class="graphic">
-      <movements-graphic :amounts="amounts"/>
+      <movements-graphic :amounts="amounts" />
     </div>
     <div class="action">
       <add-movement-button />
@@ -14,19 +14,19 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
+import { computed } from 'vue';
 
-  import { formatCurrency } from '../../utils/number'
+import { formatCurrency } from '../../utils/number';
 
-  import AddMovementButton from './AddMovementButton'
-  import MovementsGraphic from './MovementsGraph'
+import AddMovementButton from './AddMovementButton';
+import MovementsGraphic from './MovementsGraph';
 
-  const props = defineProps<{
-    totalAmount: number,
-    amounts: number[]
-  }>()
+const props = defineProps<{
+  totalAmount: number;
+  amounts: number[];
+}>();
 
-  const isNegative = computed(() => props.totalAmount < 0 ? true : false)
+const isNegative = computed(() => (props.totalAmount < 0 ? true : false));
 </script>
 
 <style scoped>
@@ -45,7 +45,7 @@ p {
   font-weight: 700;
 }
 
-p{
+p {
   font-size: 1.25rem;
 }
 
@@ -61,9 +61,9 @@ h1 {
   box-sizing: border-box;
 }
 .red {
-    color: red;
+  color: red;
 }
 .green {
-    color: green;
+  color: green;
 }
 </style>

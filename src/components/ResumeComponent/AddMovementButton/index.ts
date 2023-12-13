@@ -1,1 +1,1 @@
-export { default } from './AddMovementButton.vue'
+export { default } from './AddMovementButton.vue';

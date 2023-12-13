@@ -1,1 +1,1 @@
-export { default } from './HeaderComponent.vue'
+export { default } from './HeaderComponent.vue';

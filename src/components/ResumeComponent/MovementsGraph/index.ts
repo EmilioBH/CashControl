@@ -1,1 +1,1 @@
-export { default } from './MovementGraph.vue'
+export { default } from './MovementGraph.vue';

@@ -16,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+import { ref } from 'vue';
 
-  const showMovements = ref(false)
+const showMovements = ref(false);
 </script>
 
 <style scoped>

@@ -1,16 +1,16 @@
 <template>
-    <button @click="showModal = true">Add movement</button>
-    <Teleport to="#app">
-      <new-movement-modal v-if="showModal" @close-modal="showModal = false"/>
-    </Teleport>
+  <button @click="showModal = true">Add movement</button>
+  <Teleport to="#app">
+    <new-movement-modal v-if="showModal" @close-modal="showModal = false" />
+  </Teleport>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import NewMovementModal from '../NewMovementModal'
+import NewMovementModal from '../NewMovementModal';
 
-  const showModal = ref(false)
+const showModal = ref(false);
 </script>
 
 <style scoped>
@@ -54,7 +54,7 @@ textarea {
   padding: 8px;
 }
 
-input[type="number"] {
+input[type='number'] {
   text-align: right;
 }
 
@@ -69,7 +69,7 @@ input[type="number"] {
   margin-left: 8px;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   appearance: none;
   width: 1.24rem;
   height: 1.24rem;
@@ -78,7 +78,7 @@ input[type="radio"] {
   border-radius: 50%;
 }
 
-input[type="radio"]:checked {
+input[type='radio']:checked {
   background-color: var(--brand-blue);
 }
 </style>

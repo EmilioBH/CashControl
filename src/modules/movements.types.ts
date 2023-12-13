@@ -1,7 +1,7 @@
 export type Movement = {
-  id: number
-  title: string
-  description: string
-  amount: number
-  time: Date
-}
+  id: number;
+  title: string;
+  description: string;
+  amount: number;
+  time: Date;
+};

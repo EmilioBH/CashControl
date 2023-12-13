@@ -1,1 +1,1 @@
-export { default } from './ResumeComponent.vue'
+export { default } from './ResumeComponent.vue';
