@@ -12,5 +12,7 @@ export default defineConfig({
     environment: 'jsdom',
     mockReset: true,
     setupFiles: './test-setup.ts',
+    include: ['**/*.spec.ts'],
+    exclude: ['**/*.e2e.spec.ts'],
   },
 });
