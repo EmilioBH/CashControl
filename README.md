@@ -19,6 +19,7 @@ CashControl App is built using a range of modern technologies ensuring efficienc
 - **Vue 3 with Composition API**: For building the user interface with a reactive and composable approach.
 - **Vite**: As the build tool and development server, offering fast and lean project bundling.
 - **Vitest**: Employed for unit testing, providing a Vite-native test framework.
+- **Playwright**: Employed for E2E testing workflow.
 - **ESLint**: We use ESLint as a static code analysis tool to identify problematic patterns found in JavaScript/TypeScript code.
 - **Prettier**: Prettier is a code formatter that automates the process of styling code.
 - **Vue Testing Library**: To facilitate testing Vue components with practices similar to React Testing Library.
@@ -52,6 +53,8 @@ After installing the CashControl App, you can interact with it in various ways:
 
 - **Running Tests**: Execute `npm run test` to run the unit tests with Vitest.
 
+- **Running Tests E2E**: Execute `npm run test:e2e` to run the end-to-end tests with Playwright.
+
 - **Building the Project**: For creating a production build, use `npm run build`. This will compile and minify your application for optimal performance.
 
 - **Previewing the Build**: To preview the production build, run `npm run preview`. This hosts the built version on a local server for you to review.
@@ -66,6 +69,7 @@ To run the tests in CashControl App, use the following command:
 
 ```bash
 npm run test
+nmp run test:e2e
 ```
 
 ## Deployment
